@@ -140,11 +140,15 @@ void SerialDevice::flush() {
 }
 
 void SerialDevice::flushInput() {
+#if !(defined(_WIN32) && defined(_WIN64))
     mSerial->flushInput();
+#endif
 }
 
 void SerialDevice::flushOutput() {
+#if !(defined(_WIN32) && defined(_WIN64))
     mSerial->flushOutput();
+#endif
 }
 
 }}
